@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: photo Lambda
+Resources:
+  LF1:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: LF1
+      Handler: index-photos.lambda_handler
+      Runtime: python3.9
+      CodeUri: ./LF1
+      Description: 'Lambda function for photo index'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::091632077941:role/service-role/LF1-role-ilxnuc6a'
+      Environment:
+        Variables:
+          REGION: us-east-1
+  LF2:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: LF2
+      Handler: search-photos.lambda_handler
+      Runtime: python3.7
+      CodeUri: ./LF2
+      Description: 'Lambda function for photo search'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::091632077941:role/service-role/LF2-role-yp9t40en'
+      Events:
+        AI Photo Search:
+          Type: Api
+          Properties:
+            Path: /search
+            Method: get
+      Environment:
+        Variables:
+          REGION: us-east-1
