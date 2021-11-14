@@ -27,12 +27,6 @@ Resources:
       MemorySize: 128
       Timeout: 30
       Role: 'arn:aws:iam::091632077941:role/service-role/LF2-role-yp9t40en'
-      Events:
-        AI Photo Search:
-          Type: Api
-          Properties:
-            Path: /search
-            Method: get
       Environment:
         Variables:
           REGION: us-east-1
