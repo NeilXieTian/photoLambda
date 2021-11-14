@@ -8,7 +8,7 @@ Resources:
       FunctionName: LF1
       Handler: index-photos.lambda_handler
       Runtime: python3.9
-      CodeUri: ./
+      CodeUri: LF1
       Description: 'Lambda function for photo index'
       MemorySize: 128
       Timeout: 30
