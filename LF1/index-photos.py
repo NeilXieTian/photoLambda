@@ -9,6 +9,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 def lambda_handler(event, context):
+    print('abc')
     label_list=[]
     for record in event['Records']:
         photo_bucket = record['s3']['bucket']['name']
